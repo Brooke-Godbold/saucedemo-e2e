@@ -14,6 +14,10 @@ public class InventoryPage {
         return new Select(TestState.webDriver.findElement(By.className("product_sort_container")));
     }
 
+    public static void sortByHighToLow() {
+        getSortFilter().selectByValue("hilo");
+    }
+
     public static List<WebElement> getInventory() {
         return TestState.webDriver.findElements(By.className("inventory_item"));
     }

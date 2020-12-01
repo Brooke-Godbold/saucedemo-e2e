@@ -1,10 +1,7 @@
 package steps;
 
 import io.cucumber.java8.En;
-import page.BasketPage;
-import page.CheckoutCompletePage;
-import page.CheckoutSummaryPage;
-import page.InventoryPage;
+import page.*;
 
 import java.util.ArrayList;
 
@@ -42,5 +39,12 @@ public class AssertSteps implements En {
             assertThat(CheckoutCompletePage.getCheckoutCompleteText()).contains("THANK YOU FOR YOUR ORDER");
         });
 
+        Then("I will be shown an Error Message of {string}", (String expectedError) -> {
+            assertThat(LoginPage.getLoginError().getText()).isEqualTo(expectedError);
+        });
+
+        Then("the Page URL will be {string}", (String expectedUrl) -> {
+            assertThat(TestState.webDriver.getCurrentUrl()).isEqualTo(expectedUrl);
+        });
     }
 }

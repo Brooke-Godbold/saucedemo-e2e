@@ -17,4 +17,8 @@ public class LoginPage {
     public static WebElement getLoginButton() {
         return TestState.webDriver.findElement(By.id("login-button"));
     }
+
+    public static WebElement getLoginError() {
+        return TestState.webDriver.findElement(By.xpath("//h3[@data-test='error']"));
+    }
 }

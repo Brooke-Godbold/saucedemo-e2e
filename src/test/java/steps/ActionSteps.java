@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java8.En;
 import page.*;
 import utils.TestUtils;
+import utils.WaitUtils;
 
 import java.util.Map;
 
@@ -17,7 +18,7 @@ public class ActionSteps implements En {
         });
 
         When("I sort the Inventory from Lowest to Highest Price", () -> {
-            InventoryPage.getSortFilter().selectByValue("hilo");
+            InventoryPage.sortByHighToLow();
         });
 
         When("I add the Cheapest Item to my Cart", () -> {
@@ -57,6 +58,12 @@ public class ActionSteps implements En {
 
         When("I click on the finish button", () -> {
             CheckoutSummaryPage.getFinishButton().click();
+        });
+
+        When("I click on the logout button", () -> {
+            NavBar.getBurgerButton().click();
+            WaitUtils.waitUntilElementIsInteractable(NavBar.getLogoutButton());
+            NavBar.getLogoutButton().click();
         });
 
     }
