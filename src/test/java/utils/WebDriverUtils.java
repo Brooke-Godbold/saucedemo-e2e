@@ -15,7 +15,6 @@ public class WebDriverUtils {
         chrome.toFile().setExecutable(true);
         System.setProperty("webdriver.chrome.driver", chrome.toAbsolutePath().toString());
         ChromeOptions chromeOptions = new ChromeOptions();
-        //chromeOptions.addArguments("--headless");
         driver = new ChromeDriver(chromeOptions);
         return driver;
     }
